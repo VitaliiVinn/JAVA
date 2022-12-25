@@ -10,11 +10,13 @@ public class Function2 {
         int[] array = {5, -3, 4, 44};
         double average = mid(array);
         System.out.println(average);
+
         System.out.println("ф-я принимает массив интов и возвращает массив с только положительніми єлементами");
         int[] arrayUs = {65, 6, -614, 971, -30, -14, 58, 37};
         System.out.println(Arrays.toString(arrayUs));
         int[] newCop = arrayPositive(arrayUs);
         System.out.println(Arrays.toString(newCop));
+
         System.out.println("принимаем массив интов и возвр массив без повторений");
         int[] massive = {52, 90, 95, -37, 37, 52, 88, -2, 95, 88, 37, 3, 2, 88, 95};
         System.out.println(Arrays.toString(massive));
@@ -112,18 +114,167 @@ public class Function2 {
         String msr = letters(digLett);
         System.out.println(msr);
 
-//        System.out.println("2)ф-я принимает стринг и возвращает такой стринг()aaaadddf - 4a2d1f");
-//        String dL = "2a3c2d";
-//        String mf = letters(dL);
-//        System.out.println(mf);
+        System.out.println("2)ф-я принимает стринг и возвращает такой стринг()aaaadddf - 4a3d1f");
+        String dL = "aaaadddf";
+        String mf = returnSame(dL);
+        System.out.println(mf);
+
+        System.out.println("ф-я принимает массив интов и возвращает сумму цифр этих чисел");
+        int[] given = {-9, 5, 88, 0, 13, -50};
+        int returned = sumAllOfDig(given);
+        System.out.println(returned);
+
+        System.out.println("В-я принимает целое число и возвращает тру, если оно является числом армстронга");
+        int isArmstrong = 16345;
+        boolean c = check(isArmstrong);
+        System.out.println(c);
+
+        System.out.println("ф-я принимает инт и чситает сколько троек (3)  в числах от 0 до него");
+        int anyNumber = 35;
+        int numb = 3;
+//        int find = countOfThree(anyNumber);
+        int find = counterOfThree(anyNumber, numb);
+        System.out.println("Количество цифр 3 от 0 и до заданного числа - " + find);
+
+        System.out.println("принимаем массив и возвращаем массив без повторов");
+        int[] inp = {108, 108, 108, 9, 71, -55, -55, -55, 17, 52, 11, -82, 55, 9, 17, 46, 71, 88, 45, 106, 38, 10, 10, 10, 10};
+        int[] no = noRep(inp);
+        System.out.println(Arrays.toString(no));
+
+        System.out.println("принимаем массив - возвр  самое часто встречаю  значение");
+        int[] dig = {17, 111, 17, -55, 17, 52, 17, -82, 55, 111, 17, 111, 71, 88, 17, 106, 38, 99, 111, 0, 0, 0, 0, 0 ,0, 0};
+        int go = howOften(dig);
+        System.out.println(go);
+
+
     }
 
-//    //1)ф-я принимает стринг и возвращает стринг( 2a3c2d7п3в - >aacccdd)
-    public static String letters (String digLett){
+    //принимаем массив - возвр  самое часто встречаю  значение
+    public static int howOften(int[] dig) {
+        Arrays.sort(dig);
+        System.out.print(Arrays.toString(dig));
+        int max = Integer.MIN_VALUE;
+        int quant = 0;
+        for (int f = 0; f < dig.length; f++) {
+            int counter = 0;
+            for (int index1 = 0; index1 < dig.length; index1++) {
+                if (dig[f] == dig[index1]) {
+                    counter++;
+                }
+            }
+            if(counter > max){
+                max = counter;
+                quant = dig[f];
+            }
+        }
+        return quant;
+    }
+
+    //принимаем массив и возвращаем массив без повторов
+    public static int[] noRep(int[] inp) {
+        Arrays.sort(inp);
+        int find = 0;
+        for (int e = 0; e < inp.length; e++) {
+            for (int a = e + 1; a < inp.length; a++) {
+                if (inp[e] != inp[a]) {
+                    find++;
+                    e = a - 1;
+                    break;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(inp));
+        System.out.println(find);
+        int[] update = new int[find];
+        find = 0;
+        for (int i = 0; i < inp.length; i++) {
+            for (int n = i + 1; n < inp.length; n++) {
+                if (inp[i] != inp[n]) {
+                    update[find++] = inp[i];
+                    i = n - 1;
+                    break;
+                }
+            }
+        }
+        return update;
+    }
+
+    //ф-я принимает инт и чситает сколько троек (3)  в числах от 0 до него
+    public static int counterOfThree(int anyNumber, int numb) {
+//        int[] arFor = new int[anyNumber];
+        int counterOfThree = 0;
+        for (int h = 0; h <= anyNumber; h++) {
+//            arFor[h] = h + 1;
+            char[] g = (h + "").toCharArray();
+            for (int b = 0; b < g.length; b++) {
+                if (g[b] == numb + 48) {
+                    counterOfThree++;
+                }
+            }
+        }
+//        String intToStr = Arrays.toString(arFor);
+//        char[] strToChar = intToStr.toCharArray();
+//        int counterOfThree = 0;
+//        int inputNecessaryDigit = 51;
+//        for (int w = 0; w < strToChar.length; w++) {
+//            if (strToChar[w] == inputNecessaryDigit) {
+//                counterOfThree++;
+//            }
+//        }
+        return counterOfThree;
+
+    }
+
+    //В-я принимает целое число и возвращает тру, если оно является числом армстронга
+    public static boolean check(int isArmstrong) {
+        int sumOfNumb = 0;
+        String ofInt = Integer.toString(isArmstrong);
+        String[] ary = ofInt.split("");
+        int[] numb = new int[ary.length];
+        int exponent = numb.length;
+        boolean wtf = true;
+
+        for (int q = 0; q < numb.length; q++) {
+            numb[q] = Integer.parseInt(ary[q]);
+            numb[q] = (int) Math.pow(numb[q], exponent);
+            sumOfNumb += numb[q];
+            if (sumOfNumb == isArmstrong) {
+                wtf = true;
+            } else {
+                wtf = false;
+            }
+        }
+        return wtf;
+    }
+
+    //ф-я принимает массив интов и возвращает сумму цифр этих чисел
+    public static int sumAllOfDig(int[] given) {
+        int summary = 0;
+        String m = "";
+        char[] d = Arrays.toString(given).toCharArray();
+        System.out.println(d);
+        for (int p = 0; p < d.length; p++){
+            if(d[p] >= 48 && d[p] <=57){
+                summary += d[p] - 48;
+            }
+
+        }
+//        for (int p = 0; p < given.length; p++) {
+//            int j = given[p];
+//            while (j != 0) {
+//                summary += j % 10;
+//                j = j / 10;
+//            }
+//        }
+        return summary;
+    }
+
+    //    //1)ф-я принимает стринг и возвращает стринг( 2a3c2d7п3в - >aacccdd)
+    public static String letters(String digLett) {
         char[] g = digLett.toCharArray();
         String x = "";
         for (int i = 0; i < g.length; i = i + 2) {
-            for (int f = 0; f < g[i] - 48; f++){
+            for (int f = 0; f < g[i] - 48; f++) {
                 x += g[i + 1];
             }
         }
@@ -131,9 +282,28 @@ public class Function2 {
     }
 
     //2)ф-я принимает стринг и возвращает такой стринг aaaadddf - 4a3d1f
-//    public static String returnSame (String let){
-//
-//    }
+    public static String returnSame(String let) {
+        char[] rez = let.toCharArray();
+        String t = "";
+        int counter = 0;
+        for (int e = 0, index = e; e < rez.length; e++) {
+            if (rez[e] == rez[index]) {
+                counter++;
+
+                if( e == rez.length - 1){
+                    t += counter + "" + rez[e];
+                    break;
+                }
+            }
+            else {
+               t += counter + "" + rez[e - 1];
+                index = e;
+                e--;
+                counter = 0;
+            }
+        }
+        return t;
+    }
 
     // ф-ия принимает 2  массива и возвращает победителя. В нашем случае - это Саша, так как у него самый высокий результат
     //в подходе - 21. Второе место занял Кирюша, у него такой же результат, но сумма всех результатот меньше, чем у саши
@@ -158,9 +328,10 @@ public class Function2 {
         }
         return players[maxIndex];
     }
+
     public static int sum(int[] newAr) {
         int sum = 0;
-        for (int o = 0; o < newAr.length; o++){
+        for (int o = 0; o < newAr.length; o++) {
             sum += newAr[o];
         }
         return sum;
@@ -495,12 +666,9 @@ public class Function2 {
                     newSuch[cou++] = massive[d];
                     d = h - 1;
                     break;
-
                 }
             }
-
         }
         return newSuch;
     }
-
 }

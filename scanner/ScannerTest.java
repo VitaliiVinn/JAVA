@@ -7,12 +7,12 @@ import java.util.Scanner;
 public class ScannerTest {
     public static void main(String[] args) {
         Scanner m = new Scanner(System.in);
-//        System.out.println("Input double");
-//        double n = m.nextDouble();
-//        System.out.println(n);
-//        System.out.println("Input text");
-//        String k = m.nextLine();
-//        System.out.println(k);
+        System.out.println("Input double");
+        double n = m.nextDouble();
+        System.out.println(n);
+        System.out.println("Input text");
+        String k = m.nextLine();
+        System.out.println(k);
         guess();
         game();
 
