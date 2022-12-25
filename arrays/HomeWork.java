@@ -444,10 +444,65 @@ public class HomeWork {
             System.out.println(bejom);
             b += withNum[b1];
         }
-        System.out.print(b);
+        System.out.println(b);
+
+        System.out.println("ф-я принимает массив интов и возвращает сумму цифр этих чисел");
+        int[] given = {12, 44};
+        int summaryOfAll = 0;
+        int summary = 0;
+        for (int p = 0; p < given.length; p++) {
+            int j = given[p];
+            while (j != 0) {
+                summary += j % 10;
+                j = j / 10;
+
+            }
+        }
+        System.out.println(summary);
+
+        System.out.println("В-я принимает целое число и возвращает тру, если оно является числом армстронга");
+        int isArmstrong = 912985153;
+        int summa = 0;
+        String ofInt = Integer.toString(isArmstrong);
+        String[] ary = ofInt.split("");
+        int[] numb = new int[ary.length];
+        int exponent = numb.length;
+        boolean check = true;
+        for (int q = 0; q < numb.length; q++) {
+            numb[q] = Integer.parseInt(ary[q]);
+            numb[q] = (int) Math.pow(numb[q], exponent);
+            summa += numb[q];
+            if (summa == isArmstrong) {
+                check = true;
+            } else {
+                check = false;
+            }
+        }
+        System.out.println(check);
+
+
+        System.out.println("dfakfdkajfkldmfkladlmd");
+        int anyNumber = 32;
+        int v = 0;
+        int[] arFor = new int[anyNumber];
+        for (int h = 0; h < arFor.length; h++) {
+//            arFor[h] = v + (int)(Math.random() * 32) + 1;
+            arFor[h] = h + 1;
+        }
+        String intToStr = Arrays.toString(arFor);
+        char[] strToChar = intToStr.toCharArray();
+        System.out.println(strToChar);
+        int counterOfThree = 0;
+        for (int w = 0; w < strToChar.length; w++) {
+            if (strToChar[w] == 51) {
+                counterOfThree++;
+            }
+        }
+        System.out.println("троек " + counterOfThree);
 
     }
 }
+
 
 
 

@@ -123,7 +123,6 @@ public class Array2dEx {
             for (int h = 0; h < sort[s].length; h++) {
                 sort1[p++] = sort[s][h];
             }
-
         }
         System.out.println(Arrays.toString(sort1));
         Arrays.sort(sort1);
@@ -448,29 +447,61 @@ public class Array2dEx {
                 }
             }
         }
-        System.out.println("ф-я принимает стринг и возвращает стринг( 2a3c2d - >aacccdd)");
-        String digLett = "2a3c2d";
-        char[] g = digLett.toCharArray();
-        char l = 'a';
-        char j = 'c';
-        char k = 'd';
-        char[] newG = new char[g.length + 1];
-        newG[newG.length - 1] = 'd';
-        for (int i = 0; i < g.length; i++) {
-            if (g[i] >= 48 && g[i] <= 57) {
-                g[0] = l;
-                g[2] = j;
-                g[4] = j;
-                g[5] = k;
-                newG[i] = g[i];
-            }
+
+        //принимаем двумерный массив , сортируем столбцы
+        System.out.println("\nпринимаем двумерный массив , сортируем столбцы");
+        int[][] multArray =    {{53, 111, 4, 120},
+                                {68, -75, -6, 7},
+                                {18, 1, 2, 78},
+                                {8, 21, 58, 89}};
+
+        int lengthColumn = 3;
+        int len = multArray[lengthColumn].length;
+        int[] transf = new int[len];
+        for (int hu = 0; hu < len; hu++){
+            transf[hu] = multArray[hu][lengthColumn];
         }
-        for (int u = 0; u < g.length; u++) {
-                if (g[u] < 47 || g[u] > 57) {
-                    newG[u] = g[u];
+        Arrays.sort(transf);
+        for (int huw = 0; huw < transf.length; huw++){
+            multArray[huw][lengthColumn] = transf[huw];
+        }
+
+        for (int finish = 0; finish < multArray.length; finish++){
+            for (int finCol = 0; finCol < multArray[finish].length; finCol++){
+                System.out.print(multArray[finish][finCol] + " ");
+            }
+            System.out.println();
+        }
+
+        // создать массив   х_х_х_
+//                          _х_х_х_
+        //                  х_х_х_
+        System.out.println("создать массив");
+        char letter = 'x';
+        char sp = 32;
+        int row = 10;
+        int col = 20;
+        int depl = 0;
+        char[][] arrayOfX = new char[row][col];
+        for(int f = 0; f < row; f++){
+            for (int w = 0; w < col; w++){
+                if(w %2 == 0 && f %2 == 0 || w %2 != 0 && f %2 != 0){
+                    arrayOfX[f][w] = letter;
+                }
+                else {
+                    arrayOfX[f][w] = sp;
                 }
             }
-        System.out.println(Arrays.toString(newG));
+        }
+        for(int fq = 0; fq < arrayOfX.length; fq++) {
+            for (int wq = 0; wq < arrayOfX[fq].length; wq++) {
+                System.out.print(arrayOfX[fq][wq] + " ");
+            }
+            System.out.println();
+        }
+
+
+
     }
 
 
