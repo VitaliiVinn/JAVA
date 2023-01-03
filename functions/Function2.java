@@ -627,9 +627,7 @@ public class Function2 {
 
     public static int[] arrayPositive(int[] arrayUs) {
         int count = 0;
-
         for (int u = 0; u < arrayUs.length; u++) {
-
             if (arrayUs[u] > 0) {
                 count++;
             }
