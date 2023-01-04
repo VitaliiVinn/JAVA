@@ -78,5 +78,4 @@ public class ArraysLoops {
         double x = (double) counter / array.length;
         return x;
     }
-
 }
