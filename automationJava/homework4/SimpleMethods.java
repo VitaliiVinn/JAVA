@@ -13,7 +13,7 @@ public class SimpleMethods {
 
         home.triangleDefinition(8, 6, 8);
     }
-    //    1.Написати метод з назвою "сheckOddEven", яка друкує "Odd Number"
+    // 1.Написати метод з назвою "сheckOddEven", яка друкує "Odd Number"
 //    якщо змінна "number" типу int непарна. Або "Even Number" якщо змінна
 //    парна. Програма завжди має перед виходом друкувати “BYE”
     public void сheckOddEven(int number) {
@@ -24,10 +24,10 @@ public class SimpleMethods {
         }
     }
 //    2.Написати метод з назвою "printMonthInWord", яка друкує "JAN",
-//            "FEB", …. “DEC”, якщо змінна “month” типу int буде 1, 2, 3, 4...12.
+//    "FEB", …. “DEC”, якщо змінна “month” типу int буде 1, 2, 3, 4...12.
 //    в іншому випадку програма повинна вивести “Not a valid month”. Розв'язати задачу двома
 //    способами:
-//            1) з використанням if..else if
+//     1) з використанням if..else if
     public void printMonthInWord(int month) {
         if (month == 1) {
             System.out.println("JAN");
@@ -68,7 +68,7 @@ public class SimpleMethods {
             System.out.println("Not a valid month");
         }
     }
-    //            2) з використанням switch-case
+    //   2) з використанням switch-case
     public void printMonthInWordSwitch(int month) {
         switch (month) {
             case 1:
@@ -111,7 +111,7 @@ public class SimpleMethods {
                 System.out.println("Not a valid month");
         }
     }
-    //    3.Написати метод якій порівнюватиме величину (magnitude) двох чисел.
+    //  3.Написати метод якій порівнюватиме величину (magnitude) двох чисел.
 //    Наприклад, якщо одне число = 3, а друге число = -9, програма має видати, що
 //    число -9 має велику величину. Для обчислення абсолютного значення можна використовувати метод із стандартної бібліотеки Math.abs()
     public void magnitude(int firstNumber, int secondNumber) {
@@ -125,7 +125,7 @@ public class SimpleMethods {
             System.out.println(firstNumber + " is equal with " + secondNumber + " in absolute value");
         }
     }
-    //    4.Написати метод, який визначає, чи є трикутник зі сторонами a, b, c рівнобедреним.
+    // 4.Написати метод, який визначає, чи є трикутник зі сторонами a, b, c - рівнобедреним.
     public void triangleDefinition(int a, int b, int c) {
         if (a == b || a == c || b == c) {
             System.out.println("Triangle is isosceles");

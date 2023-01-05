@@ -5,7 +5,7 @@ public class Product {
     private int price;
     private int amount;
 
-    public Product(String title, int price, int amount){
+    public Product(String title, int price, int amount) {
         this.title = title;
         this.price = price;
         this.amount = amount;
@@ -21,5 +21,9 @@ public class Product {
 
     public int getAmount() {
         return amount;
+    }
+
+    public void setAmount(int newAmount) {
+        this.amount = newAmount;
     }
 }
