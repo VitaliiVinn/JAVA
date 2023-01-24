@@ -9,66 +9,79 @@ import java.util.Scanner;
 public class DispenserMethods {
     private Product[] products;
     private String title;
-    private int moneyForChange = 5000;
-    private int amountOfCola = 10;
-    private int amountOfCoockies = 50;
-    private int amountOfBeer = 15;
-    private int amountOfHamburger = 100;
-    private int priceCola = 2;
-    private double priceCookies = 0.5;
-    private double priceBeer = 1.8;
-    private int priceHamburger = 2;
 
     Scanner scanner = new Scanner(System.in);
 
     public DispenserMethods() {
         products = new Product[4];
         Product cola = new Product("Cola", 25, 2);
-        Product coockies = new Product("Roshen", 100, 1.8);
+        Product coockies = new Product("Roshen", 100, 1);
         Product beer = new Product("Obolon", 80, 2);
-        Product hamburger = new Product("Beef", 15, 1.5);
+        Product hamburger = new Product("Beef", 15, 3);
         products[0] = cola;
         products[1] = coockies;
         products[2] = beer;
         products[3] = hamburger;
+        menu();
     }
 
     public void buyProduct() {
-        for (int i = 0; i < products.length; i++){
-
-
-            products[i].info();
-
+        for (int i = 0; i < products.length; i++) {
+            if (products[i].getAmount() > 0) {
+                System.out.print(i + " ");
+                products[i].info();
+            }
         }
-//        0lllllll
-
-
-//        int counter = 0;
-//        int restOfProduct = 0;
-//        if (products >= priceCola && amountOfCola > 0) {
-//            counter++;
-//            System.out.println("Take Cola");
-//            restOfProduct = amountOfCola - counter;
-//            System.out.println(restOfProduct);
-//        } else if (money >= priceHamburger && amountOfHamburger > 0) {
-//            counter++;
-//            System.out.println("Take Hamburger");
-//            restOfProduct = amountOfHamburger - counter;
-//            System.out.println(restOfProduct);
-//            System.out.println("Take Hamburger");
-//
-//        } else if (money >= priceCookies && amountOfCoockies > 0) {
-//            System.out.println("Take Cookies");
-//        } else if (money >= priceBeer && amountOfBeer > 0) {
-//            System.out.println("Take Beer");
-//        } else {
-//            System.out.println("Put more money");
-//        }
+        System.out.println("What do you need?");
+        int number = scanner.nextInt();
+        System.out.println("Put money");
+        int money = scanner.nextInt();
+        if (money >= products[number].getPrice()) {
+            int rest = products[number].getAmount() - 1;
+            System.out.println("Rest of product " + rest);
+            int restMoney = money - products[number].getPrice();
+            System.out.println("Rest of money is " + restMoney);
+            change(restMoney);
+        }
     }
-//    public void takeChosenProduct(){
-//        System.out.println("Choose product: \n1 - Cola; \n2 - ");
-//
-//    }
+    private void change(int restMoney){
+        System.out.println("Take your change");
+        int amount = restMoney/100;
+        if(amount > 0){
+            System.out.println("Take " + amount + " 100$");
+            restMoney = restMoney - amount * 100;
+            if(restMoney == 0){
+                return;
+            }
+        }
+        amount = restMoney/50;
+        if (amount > 0){
+            System.out.println("Take " + amount + " 50$");
+            restMoney = restMoney - amount * 50;
+            if (restMoney == 0){
+                return;
+            }
+        }
+        amount = restMoney/20;
+        if(amount > 0){
+            System.out.println("Take " + amount + " 20$");
+            restMoney = restMoney - amount * 20;
+            if(restMoney == 0){
+                return;
+            }
+        }
+        amount = restMoney/5;
+        if(amount > 0){
+            System.out.println("Take " + amount + " 5$");
+            restMoney = restMoney - amount * 5;
+            if(restMoney == 0){
+                return;
+            }
+        }
+        if(amount > 0){
+            System.out.println("Take " + amount + " 1$");
+        }
+    }
 
 //    public void change(int putMoney) {
 //        int change = 0;
@@ -80,21 +93,14 @@ public class DispenserMethods {
 //    }
 
 
-//    public void chooseProduct() {
-//        System.out.println("What is your choice? \n1 - Cola; \n2 - Cookies; \n3 - Beer; \n4 - Hamburger; \n5 - exit");
-//        int choice = scanner.nextInt();
-//        if (choice == 1) {
-//            putMoneyAndChooseProduct();
-//        }
-//        if (choice == 2) {
-//            putMoneyAndChooseProduct();
-//        }
-//        if (choice == 3) {
-//            putMoneyAndChooseProduct();
-//        }
-//        if (choice == 4) {
-//            putMoneyAndChooseProduct();
-//        }
-//        chooseProduct();
-//    }
+    private void menu() {
+        System.out.println("What is your choice? \n1 - Buy; \n2 - Exit"); //пополнить запасы
+        int choice = scanner.nextInt();
+        if (choice == 1) {
+            buyProduct();
+        }
+        if (choice == 2) {
+            System.exit(0);
+        }
+    }
 }

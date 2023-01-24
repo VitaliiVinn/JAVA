@@ -52,7 +52,6 @@ public class AddressBook {
             }
         }
     }
-
     public void findSurname(String surnameData) {
         for (int i = 0; i < freePosition; i++) {
             if (contacts[i].getSurname().equals(surnameData)) {
