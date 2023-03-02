@@ -1,6 +1,7 @@
 package okten_java.lesson1;
 
 public class Car {
+
     private String model;
     private double power;
     private int volumeEngine;
