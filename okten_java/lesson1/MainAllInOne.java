@@ -6,15 +6,17 @@ public class MainAllInOne {
         System.out.println(car);
 
 
-        Book book = new Book("Captain's Grant Children", 358, "Adventure");
+        Book book = new Book("'Captain's Grant Children'", 358, "Adventure");
         book.authors[0] = "Scott";
         book.authors[1] = "Duma";
         book.authors[2] = "Markes";
-        System.out.println(book.authors[0] + ", " + book.authors[1] + ", " + book.authors[2] + ", "
-                + book.title + ", " + book.pages + ", " + book.genre);
+        System.out.println("Authors of books \n{" + "\n" + book.authors[0] + "\n" + book.authors[1] + "\n" + book.authors[2]
+                + "\nName of the book is "
+                + book.title + "\nAmount of pages are " + book.pages + "\nGenre is " + book.genre + "\n}");
 
 
         Dog dog = new Dog("Tuzik", 45, "Rezenshnautzer");
-        dog.infoAboutDog();
+//        dog.infoAboutDog();
+        System.out.println(dog);
     }
 }
