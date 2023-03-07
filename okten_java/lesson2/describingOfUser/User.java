@@ -1,4 +1,4 @@
-package okten_java.lesson2;
+package okten_java.lesson2.describingOfUser;
 
 public class User {
 //    {
@@ -19,24 +19,31 @@ private int id;
 private String name;
 private String userName;
 private String email;
-String[] address = new String[4];
 
-public User(int id, String name, String userName, String email){
+Address address;
+public User(int id, String name, String userName, String email, Address address){
     this.id = id;
     this.name = name;
     this.userName = userName;
     this.email = email;
+    this.address = address;
 }
 @Override
 public String toString(){
-    return "\n{" +
+    return "{" +
             "\n'ID':" + id + "," +
             "\n'name':" + name + "," +
             "\n'userName':" + userName + "," +
             "\n'email':" + email + "," +
-            "\n'address':" + address + "\n}";
+            "\n'address': {" +
+            "\n'street':" + address.street +
+            "\n'suite':" + address.suite +
+            "\n'city':" + address.city +
+            "\n'zipcode':" + address.zip +
+            "\n'geo': {" +
+            "\n'lat':" + address.geo.lat +
+            "\n'lng':" + address.geo.lng + "\n}";
 }
-
     public int getId() {
         return id;
     }
@@ -69,11 +76,11 @@ public String toString(){
         this.email = email;
     }
 
-    public String[] getAddress() {
-        return address;
-    }
+//    public static void getAddress() {
+//        return address;
+//    }
 
-    public void setAddress(String[] address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 }

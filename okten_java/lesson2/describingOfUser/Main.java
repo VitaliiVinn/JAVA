@@ -1,34 +1,25 @@
-package okten_java.lesson2;
+package okten_java.lesson2.describingOfUser;
 
 public class Main {
     public static void main(String[] args) {
 //        створити клас, який би описував подібні об'єкти виклористовуючи композицію/агрегацію
 //        https://jsonplaceholder.typicode.com/users/1
 
-        User user = new User(1 , "Leanne Graham", "Bret", "Sincere@april.biz");
-//        user.address[0] = "'street': 'Kulas Light'";
-//        user.address[1] = "'suite': 'Apt. 556'";
-//        user.address[2] = "'city': 'Gwenborough'";
-//        user.address[3] = "'zipcode': '92998-3874'";
-//        user.address[4] = "'street': 'Kulas Light'";
-//        user.address[5] = "'street': 'Kulas Light'";
-//        user.address[6] = "'street': 'Kulas Light'";
+        User user = new User(1 , "Leanne Graham", "Bret", "Sincere@april.biz",
+                new Address("Kulas Light", "Apt. 556", "Gwenborough", "92998-3874",
+                        new Geo("-37.3159", "81.1496")));
 
-        Details details = new Details("1-770-736-8031 x56442", "hildegard.org", user);
-        details.company[0] = "'name': 'Romaguera-Crona'";
-        details.company[1] = "'catchPhrase': 'Multi-layered client-server neural-net'";
-        details.company[2] = "'bs': 'harness real-time e-markets'";
-
+        Details details = new Details("1-770-736-8031 x56442","1-770-736-8031 x56442", user,
+                new Company("Romaguera-Crona", "Multi-layered client-server neural-net",
+                        "harness real-time e-markets"));
         System.out.println(details);
 
-//
 //        Створити та описати наступну їєрархію
 //        PC-Laptop-Ultrabook
 //        PC-Laptop- Workstation
 //        Загальна кількість вкористаних класів - 4!
 //
-//
-//                Cтворити клас ланцюг наслідування:
+//        Cтворити клас ланцюг наслідування:
 //        Папірус-Кинга-Журнал
 //        Папірус-Книга-Комікс
 //        Кількість полів довільна.
