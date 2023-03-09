@@ -145,8 +145,6 @@ public class Function2 {
         int[] dig = {17, 111, 17, -55, 17, 52, 17, -82, 55, 111, 17, 111, 71, 88, 17, 106, 38, 99, 111, 0, 0, 0, 0, 0 ,0, 0};
         int go = howOften(dig);
         System.out.println(go);
-
-
     }
 
     //принимаем массив - возвр  самое часто встречаю  значение
@@ -668,5 +666,16 @@ public class Function2 {
             }
         }
         return newSuch;
+    }
+    public static void intNumber (int ax, int bv, int cb){
+        if (ax < bv && ax < cb){
+            System.out.println("Minimum " + ax);
+        } else if (bv < ax && bv < cb) {
+            System.out.println("Minimum " + bv);
+        }
+        else {
+            System.out.println("Minimum " + cb);
+        }
+        return;
     }
 }
