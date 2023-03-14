@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MainAdditional {
     public static void main(String[] args) {
@@ -148,13 +149,15 @@ public class MainAdditional {
                 "Maynard.Hodkiewicz@roberta.com", "nihil ut voluptates blanditiis autem odio dicta rerum\\" +
                 "nquisquam saepe et est\\nsunt quasi nemo laudantium deserunt\\nmolestias tempora quo quia"));
 
-       for (Posts e: posts){
-           for(Comments com: comments){
-               if(com.getId()==e.getId()){
-                   posts.getClass();
-                   System.out.println(posts);
+       for (Posts p: posts){
+           for(Comments c: comments){
+               if(p.getId() == c.getPostId()){
+                   p.getComments().add(c);
                }
            }
+       }
+       for (Posts p: posts){
+           System.out.println(p);
        }
 
 
