@@ -1,5 +1,7 @@
 package okten_java.lesson2.describingOfUser.additional;
 
+import java.util.ArrayList;
+
 public class Comments {
     int id;
     int postId;
@@ -53,5 +55,9 @@ public class Comments {
 
     public void setBody(String body) {
         this.body = body;
+    }
+    @Override
+    public String toString(){
+        return id + ", " + postId + ", " + name + ", " + body + ", " + email;
     }
 }
